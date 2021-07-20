@@ -14,7 +14,7 @@ public class PlayerPhysics
         velocity = model.Body.velocity;
         
         float maxSpeedChange = model.GetAcceleration * model.GetMovementSpeed;
-
+        
         velocity = Vector2.MoveTowards(velocity, desiredVelocity, maxSpeedChange);
 
         model.Body.velocity = velocity;
@@ -27,5 +27,9 @@ public class PlayerPhysics
         desiredVelocity = input * model.GetMovementSpeed;
     }
 
+    public void Shot(Vector2 shotPoint)
+    {
+        Vector2 rebound = (shotPoint * -5f);
+    }
 
 }

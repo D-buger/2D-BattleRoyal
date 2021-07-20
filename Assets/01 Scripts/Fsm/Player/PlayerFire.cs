@@ -15,7 +15,6 @@ public class PlayerFire : FsmState<Player>
 
     public override void FixedUpdate(Player target)
     {
-        target.model.Gun.Shot();
     }
 
     public override void HandleInput(Player target)
@@ -29,6 +28,8 @@ public class PlayerFire : FsmState<Player>
 
     public override void Update(Player target)
     {
-
+        Vector2 shot = target.model.Gun.Shot();
+        if (shot != Vector2.zero)
+            target.physics.Shot(shot);
     }
 }

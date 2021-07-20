@@ -21,7 +21,7 @@ public class GunDefault
         return false;
     }
 
-    public virtual void Shot()
+    public virtual Vector2 Shot()
     {
         if (GunUpdate())
         {
@@ -29,7 +29,9 @@ public class GunDefault
             Vector2 moveTo = (SystemManager.Inst.mouse.cursorPos - transformVec2).normalized; 
             GameObject obj = model.mag.Get(model.selectedBullet, model.gunObj.position, moveTo);
             timer.Reset();
+            return moveTo;
         }
+        return Vector2.zero;
     }
     
     public void GetMag(Magazine mag)

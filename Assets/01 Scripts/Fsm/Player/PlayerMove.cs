@@ -21,12 +21,11 @@ public class PlayerMove : FsmState<Player>
     {
         playerInput.x = Input.GetAxis("Horizontal");
         playerInput.y = Input.GetAxis("Vertical");
-        target.physics.MovingSet(playerInput);
     }
 
     public override void FixedUpdate(Player target)
     {
-
+        target.physics.MovingSet(playerInput);
     }
 
     public override void HandleInput(Player target)
